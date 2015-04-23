@@ -1,0 +1,7 @@
+{
+  "name": "broccoli-sample-app",
+  "dependencies": {
+    "tweenjs": "*",
+    "threejs": "*"
+  }
+}
