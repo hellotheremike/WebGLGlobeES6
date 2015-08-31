@@ -1,11 +1,11 @@
-import GlobeNew from("./globe_new");
+import Render from("./render");
 
 var App = function () {
 	console.log("Running...");
 	if (!Detector.webgl) {
 		Detector.addGetWebGLMessage();
 	} else {
-		GlobeNew()
+		Render()
 	}
 };
 

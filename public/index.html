@@ -3,30 +3,47 @@
 <head>
   <title>App</title>
   <script src="/assets/app.js"></script>
-  <link href="/assets/app.css" rel="stylesheet" type="text/css" media="all">
+  <style>
+    body
+    {
+      font-family: Monospace;
+      font-weight: bold;
+      background-color: #ccccff;
+      margin: 0px;
+      overflow: hidden;
+    }
+  </style>
+  <!-- <link href="/assets/app.css" rel="stylesheet" type="text/css" media="all"> -->
 </head>
 <body>
-  <!-- <div id="currentInfo">
-    <span id="year1990" class="year">1990</span>
-    <span id="year1995" class="year">1995</span>
-    <span id="year2000" class="year">2000</span>
-  </div>
 
-  <div id="container"></div> -->
+  <script id="vertexShader" type="x-shader/x-vertex">
+    uniform vec3 viewVector;
+    uniform float c;
+    uniform float p;
+    varying float intensity;
 
-  <div class="world">
-      <div class="world-bg"></div>
-      <div class="world-globe">
-          <div class="world-globe-pole"></div>
-          <div class="world-globe-doms-container"></div>
-          <div class="world-globe-halo"></div>
-      </div>
-  </div>
-  <div class="info">
-      <div class="info-title">CSS Non-webgl realistic globe Demo</div>
-      <div class="info-desc">Example for my meetup talk. Use <a href="https://github.com/edankwan/PerspectiveTransform.js" target="_blank">PerspectiveTransform</a> and visual trick to create a CSS 3D globe.</div>
-      <div class="info-links"><a href="https://twitter.com/edankwan" target="_blank">@edankwan</a></div>
-  </div>
+    void main() {
+      vec3 vNormal = normalize( normalMatrix * normal );
+      vec3 vNormel = normalize( normalMatrix * viewVector );
+      intensity = pow( c - dot(vNormal, vNormel), p );
+
+      gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+    }
+  </script>
+
+  <script id="fragmentShader" type="x-shader/x-vertex">
+    uniform vec3 glowColor;
+    varying float intensity;
+
+    void main() {
+      vec3 glow = glowColor * intensity;
+      gl_FragColor = vec4( glow, 1.0 );
+    }
+  </script>
+
+  <div id="ThreeJS"></div>
+
 
   <script>
     window.App = require('appkit/app').default();
