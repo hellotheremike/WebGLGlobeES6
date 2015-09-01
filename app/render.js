@@ -3,16 +3,17 @@ import Globe from("./objects/globe");
 import Halo from("./objects/halo");
 import Atmosphere from("./objects/atmosphere");
 import Wireframe from("./objects/wireframe");
-import Lights from("./environment/lights");
+import Lights from("./objects/lights");
+import LensFlare  from("./objects/lensflare");
 import Status from("./environment/status");
 
 
 var Render = function() {
-  new Status();
-
   var env = new Environment();
+
   env.addObjectsToScene(objects());
   animate();
+  new Status();
 
   function objects(){
     return [
@@ -20,7 +21,8 @@ var Render = function() {
     new Globe(),
     new Halo(env),
     new Atmosphere(env),
-    new Wireframe()
+    new Wireframe(),
+    new LensFlare(),
     ]
   }
 

@@ -1,20 +1,22 @@
-import Settings from("./../settings");
+import Settings from("./../Settings");
 
 var Wireframe = function() {
-  var template = Settings.worldSize();
-  var wireframeMaterial = new THREE.MeshBasicMaterial( {
-    color: 0xf9f9fa,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.8
-  } );
-
-  var object = new THREE.Mesh( template, wireframeMaterial );
-  object.position.set( 0, 0, 0 );
+  var template = Settings.gridSize();
+  var material  = new THREE.MeshPhongMaterial(
+    {
+      transparent: true,
+      wireframe:true,
+      opacity: 0.04,
+    }
+    )
+  var wireframe = new THREE.Mesh(template, material)
 
   return {
     render: function(scene){
-      scene.add( object );
+      scene.add(wireframe);
+    },
+    update: function(){
+      wireframe.rotation.y += 0.002;
     }
   }
 }

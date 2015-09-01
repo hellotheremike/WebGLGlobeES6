@@ -10,15 +10,15 @@ var Halo = function(env) {
       {
         "c": {
           type: "f",
-          value: 1.0
+          value: 1.3
         },
         "p": {
           type: "f",
-          value: 3.4
+          value: 8
         },
         glowColor: {
           type: "c",
-          value: new THREE.Color( 0xfff000 )
+          value: new THREE.Color(  0xeaa500 )
         },
         viewVector: {
           type: "v3",
@@ -29,7 +29,8 @@ var Halo = function(env) {
       fragmentShader: document.getElementById( "fragmentShader" ).textContent,
       side: THREE.FrontSide,
       blending: THREE.AdditiveBlending,
-      transparent: true
+      transparent: true,
+      opacity: 0
     }
   );
 

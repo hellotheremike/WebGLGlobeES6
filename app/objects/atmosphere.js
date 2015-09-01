@@ -1,21 +1,21 @@
 import Settings from("./../settings");
 
 var Atmosphere = function(env) {
-  var template = Settings.orbitSize();
+  var template = Settings.haloSize();
   var customMaterialAtmosphere = new THREE.ShaderMaterial({
     uniforms:
     {
       "c": {
         type: "f",
-        value: 0.44
+        value: 0.3
       },
       "p": {
         type: "f",
-        value: 4.8
+        value: 7.5
       },
       glowColor: {
         type: "c",
-        value: new THREE.Color( 0xfff000 )
+        value: new THREE.Color( 0xffbc00 )
       },
       viewVector: {
         type: "v3",
@@ -40,3 +40,23 @@ var Atmosphere = function(env) {
 }
 
 export default Atmosphere;
+
+
+// {
+//       "c": {
+//         type: "f",
+//         value: 0.44
+//       },
+//       "p": {
+//         type: "f",
+//         value: 4.8
+//       },
+//       glowColor: {
+//         type: "c",
+//         value: new THREE.Color( 0xfff000 )
+//       },
+//       viewVector: {
+//         type: "v3",
+//         value: env.camera.position
+//       }
+//     },

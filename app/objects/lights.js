@@ -10,7 +10,7 @@ var Lights = function(sceene) {
     render: function(scene){
       scene.add( light );
       scene.add( light );
-      scene.add( directionalLight );
+      // scene.add( directionalLight );
     },
     update: function(camera, scene) {
       // light.position = camera.position;
