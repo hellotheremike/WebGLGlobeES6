@@ -7,7 +7,7 @@ var Atmosphere = function(env) {
     {
       "c": {
         type: "f",
-        value: 0.3
+        value: 0.2
       },
       "p": {
         type: "f",
@@ -40,23 +40,3 @@ var Atmosphere = function(env) {
 }
 
 export default Atmosphere;
-
-
-// {
-//       "c": {
-//         type: "f",
-//         value: 0.44
-//       },
-//       "p": {
-//         type: "f",
-//         value: 4.8
-//       },
-//       glowColor: {
-//         type: "c",
-//         value: new THREE.Color( 0xfff000 )
-//       },
-//       viewVector: {
-//         type: "v3",
-//         value: env.camera.position
-//       }
-//     },

@@ -6,11 +6,13 @@ var Settings = {
     return new THREE.SphereGeometry( 110,  70, 70);
   },
   gridSize: function(){
-    return new THREE.SphereGeometry( 84, 30, 20 );
+    return new THREE.SphereGeometry( 76, 45, 30 );
   },
   orbitSize: function(){
     return new THREE.SphereGeometry( 70, 70, 70 );
-  }
+  },
+  earth_rotation: 0.001,
+  grid_rotation: 0.002,
 }
 
 export default Settings;

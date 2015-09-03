@@ -5,7 +5,14 @@
     stats.domElement.style.bottom = "0px";
     stats.domElement.style.zIndex = 100;
 
-    container.appendChild( stats.domElement );
+    return {
+      render: function(scene){
+        container.appendChild( stats.domElement );
+      },
+      update: function(){
+        stats.update();
+      }
+    }
   }
 
   export default Status;

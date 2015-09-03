@@ -1,5 +1,7 @@
+var lensFlare;
+
 var LensFlare = function() {
-    var textureFlare0 = THREE.ImageUtils.loadTexture( "images/lensflare0.png" );
+    var textureFlare0 = THREE.ImageUtils.loadTexture( "images/lensflare1.png" );
     var textureFlare2 = THREE.ImageUtils.loadTexture( "images/lensflare2.png" );
     var textureFlare3 = THREE.ImageUtils.loadTexture( "images/lensflare3.png" );
 
@@ -13,7 +15,7 @@ var LensFlare = function() {
       var flareColor = new THREE.Color( 0xffffff );
       flareColor.setHSL( h, s, l + 0.5 );
 
-      var lensFlare = new THREE.LensFlare( textureFlare0, 700, 0.0, THREE.AdditiveBlending, flareColor );
+      lensFlare = new THREE.LensFlare( textureFlare0, 700, 0.0, THREE.AdditiveBlending, flareColor );
 
       lensFlare.add( textureFlare2, 512, 0.0, THREE.AdditiveBlending );
       lensFlare.add( textureFlare2, 512, 0.0, THREE.AdditiveBlending );
@@ -56,10 +58,10 @@ var LensFlare = function() {
 
     return {
       render: function(scene){
-        addLight( 0.08, 0.8, 0.5, -35, 75, 70, scene );
+        addLight( 0.08, 0.8, 0.2, -35, 75, 70, scene );
       },
-      update: function(){
-        // wireframe.rotation.y += 0.002;
+      update: function(camera){
+
       }
     }
 }
